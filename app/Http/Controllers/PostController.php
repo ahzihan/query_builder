@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
 
@@ -55,7 +53,7 @@ class PostController extends Controller
     }
 
 
-    public function InsertData(Request $request)
+    public function InsertData()
     {
         $result = DB::table('posts')->insert([
                     'title' => 'X',
@@ -71,10 +69,10 @@ class PostController extends Controller
     }
 
 
-    public function updateData(Request $request, string $id)
+    public function updateData(Request $request)
     {
         $affectedRows = DB::table('posts')
-                        ->where('id', $id)
+                        ->where('id', $request->id)
                         ->update([
                             'excerpt' => 'Laravel 10',
                             'description' => 'Laravel 10',
@@ -84,10 +82,10 @@ class PostController extends Controller
     }
 
 
-    public function deleteData(string $id)
+    public function deleteData(Request $request)
     {
         $affectedRows = DB::table('posts')
-                        ->where('id', $id)
+                        ->where('id', $request->id)
                         ->delete();
 
         echo "Number of affected rows: " . $affectedRows;
