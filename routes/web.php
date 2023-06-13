@@ -20,8 +20,8 @@ Route::get('/first', [PostController::class, 'FirstRecord']);
 Route::get('/pluck', [PostController::class, 'PluckValue']);
 Route::get('/select', [PostController::class, 'UseSelectQuery']);
 Route::post('/insert', [PostController::class, 'InsertData']);
-Route::put('/update/{id}', [PostController::class, 'updateData']);
-Route::delete('/delete/{id}', [PostController::class, 'deleteData']);
+Route::post('/update/{id}', [PostController::class, 'updateData']);
+Route::post('/delete/{id}', [PostController::class, 'deleteData']);
 Route::get('/condition', [PostController::class, 'ConditionalData']);
 Route::get('/min_to_read', [PostController::class, 'MinToRead']);
 
